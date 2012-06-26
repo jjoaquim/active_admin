@@ -5,7 +5,7 @@
   <%= active_admin_form_for(resource, :as => resource_name, :url => send(:"#{scope}_session_path"), :html => { :id => "session_new" }) do |f| 
     f.inputs do
       Devise.authentication_keys.each { |key| f.input key, :input_html => {:autofocus => true}}
-      f.input :password
+      f.input :password, :label => "Mot de passe"
       f.input :remember_me, :label => t('active_admin.devise.login.remember_me'), :as => :boolean, :if =>  false  #devise_mapping.rememberable? }
     end
     f.actions do

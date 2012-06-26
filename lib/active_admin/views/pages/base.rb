@@ -23,10 +23,13 @@ module ActiveAdmin
         def build_active_admin_head
           within @head do
             insert_tag Arbre::HTML::Title, [title, active_admin_application.site_title].join(" | ")
+            text_node '  <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <![endif]-->'.html_safe
+
             active_admin_application.stylesheets.each do |style|
               text_node(stylesheet_link_tag(style.path, style.options).html_safe)
             end
-            
             active_admin_application.javascripts.each do |path|
               script :src => javascript_path(path), :type => "text/javascript"
             end
