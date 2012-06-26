@@ -64,4 +64,5 @@ fr:
     devise:
       login:
         remember_me: "Enregistrer mes identifants"
+        title: "Login"
       submit: "Se connecter"
